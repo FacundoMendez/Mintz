@@ -1,8 +1,11 @@
 import React from 'react'
+import "./whatDig.css"
 
 const WhatDigArt = () => {
   return (
-    <div>WhatDigArt</div>
+    <div className="whatDigitalArt">
+
+    </div>
   )
 }
 

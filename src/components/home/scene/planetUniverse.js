@@ -3,9 +3,10 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import earthBump from "./srcPlanet/earthbump.jpg"
 import earthCloud from "./srcPlanet/earthCloud.png"
 import earthmap1k from "./srcPlanet/earthmap1k.jpg"
-import galaxy from "./srcPlanet/space6.jpg"
-
-import stars from "./srcPlanet/star3.png"
+import galaxy from "./srcPlanet/space7.jpg"
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { Elastic } from "gsap";
 
 const planetUniverse = () => {
 
@@ -43,11 +44,9 @@ const planetUniverse = () => {
 
     // lights
 
-    const ambientlight = new THREE.AmbientLight(0xffffff, 0.2);
-    scene.add(ambientlight);
     
-    const pointLight = new THREE.PointLight(0xffffff, 1)
-    pointLight.position.set(5, 3, 5);
+    const pointLight = new THREE.PointLight(0xffffff, 2)
+    pointLight.position.set(3,3, 5);
     scene.add(pointLight);
     
 
@@ -57,17 +56,17 @@ const planetUniverse = () => {
     const earthCloud1 = textureLoader.load(earthCloud)
     const texturePlanet = textureLoader.load(earthmap1k)
     const galaxyTexture = textureLoader.load(galaxy)
-    const starsTexture = textureLoader.load(stars)
-
+    galaxyTexture.minFilter = THREE.NearestFilter
+      
     
 
-    const universeGeometry = new THREE.SphereGeometry(35, 35, 35)
+    const universeGeometry = new THREE.SphereGeometry(25, 35, 35)
     const materialUniverse = new THREE.MeshBasicMaterial({
         side: THREE.BackSide,
         map:galaxyTexture,
-        bumpMap: stars,
-        transparent:true,
-        opacity: 0.4
+        transparent: true,
+        sizeAttenuation: true,
+        opacity:.8
     })
 
     const universe = new THREE.Mesh(universeGeometry, materialUniverse)
@@ -75,30 +74,42 @@ const planetUniverse = () => {
     scene.add(universe)
 
 
-
-
+    const groupPlanet = new THREE.Group()
+    scene.add(groupPlanet)
     
     // earth / cloud geometry
     const planetGeometry = new THREE.SphereGeometry(0.6, 32, 32);
     
    
-
-
     const earthMaterial = new THREE.MeshPhongMaterial({
         map: texturePlanet,
         bumpMap: earthBump1,
-        bumpScale: .4,
+        bumpScale: .2,
         side: THREE.FrontSide,
+        color: new THREE.Color("#f00000"),
         sizeAttenuation: true,
-        transparent:true,
+        transparent:true
     });
     
 
     const earthMesh = new THREE.Mesh(planetGeometry, earthMaterial);
     earthMesh.scale.set(1.4, 1.4 , 1.4 )
-    
-    scene.add(earthMesh);
+    earthMesh.position.x= .5
+    groupPlanet.add(earthMesh);
             
+
+    const earthSide = new THREE.MeshBasicMaterial({
+        color: new THREE.Color("#000000"),
+        side: THREE.DoubleSide,
+
+    });
+    
+
+    const earthSideMesh = new THREE.Mesh(planetGeometry, earthSide);
+    earthSideMesh.scale.set(1.3, 1.3 , 1.3 )
+    earthSideMesh.position.x= .5
+
+    groupPlanet.add(earthSideMesh);
 
 
      // clouds
@@ -110,8 +121,11 @@ const planetUniverse = () => {
      
 
      const cloudMesh = new THREE.Mesh(planetGeometry, cloudMetarial);
-     cloudMesh.scale.set(1.46, 1.46 , 1.46 )
-     scene.add(cloudMesh);
+     cloudMesh.scale.set(1.48, 1.48 , 1.48 )
+     cloudMesh.position.x= .5
+
+
+     groupPlanet.add(cloudMesh);
 
 
 
@@ -120,7 +134,7 @@ const planetUniverse = () => {
 
 
    const starsGeometry =new THREE.BufferGeometry()
-   const count = 1000
+   const count = 1500
 
    const colors = new Float32Array(count * 3)
    const positions = new Float32Array(count * 3) 
@@ -139,7 +153,7 @@ const planetUniverse = () => {
            scene.remove(points)
        }
 
-       positions[i] = (Math.random() - .6) * 17
+       positions[i] = (Math.random() - .5) * 30
        colors[i] = Math.random()
    }
 
@@ -150,13 +164,10 @@ const planetUniverse = () => {
 
 
    const particlesMaterial = new THREE.PointsMaterial({
-       size:0.4,
+       size:0.01,
        sizeAttenuation: true,
-       color: new THREE.Color("#4DaaFF"),
-       map:starsTexture,
-       alphaMap:starsTexture,
+       color: new THREE.Color("#ffffff"),
        transparent: true,
-       depthTest:false,
    })
 
    const particle = new THREE.Points(starsGeometry, particlesMaterial)
@@ -177,9 +188,94 @@ const planetUniverse = () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 
+    const cursor = {
+        x: 0,
+        y: 0
+    }
 
-    const controls = new OrbitControls(camera, canvas)
-    controls.enableDamping = true
+    window.addEventListener("mousemove", ( e ) => {
+        cursor.x = e.x / sizes.width * 0.5
+        cursor.y = - (e.y / sizes.height * 0.5)
+    } )
+
+
+
+
+    /* movement */
+
+    const movementScroll = () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline({
+            ease: Elastic,
+            scrollTrigger:{
+                trigger:".header",
+                pin:".header",
+                scrub:2,
+                start: "top top",
+            }
+        })
+
+        tl.to(groupPlanet.position , {
+            duration: 2,
+            x: .5,
+            z: 1,
+        })
+    
+        tl.to(".titleMintz" , {
+            scale: 2,
+            x:500,
+            duration: 2,
+        })
+        tl.to(".titleMintz" , {
+            y: "-= 500",
+        })
+
+        
+        tl.to(".presentMintz" , {
+            opacity:1,
+            y: "-30rem"
+        })
+    
+        tl.to(".presentMintz" , {
+            duration:2,
+            delay: .5,
+            y: "-= 700",
+        })
+
+
+
+        tl.to(".box_technology" , {
+            opacity:1,
+            y: "-30rem"
+        })
+
+        tl.to(".box_technology" , {
+            duration:2,
+            delay: .5,
+            y: "-= 700",
+        })
+
+        tl.to(groupPlanet.position , {
+            x: -.4,
+            z: 1,
+        })
+
+        tl.to(groupPlanet.position , {
+            z: 2.2,
+        })
+
+
+        tl.to(".footer" , {
+            duration: 0,
+            opacity:1,
+            y: "0rem"
+        })
+    }
+
+    movementScroll()
+
+
 
 
 
@@ -195,10 +291,11 @@ const planetUniverse = () => {
 
         universe.rotation.y = -elapsedTime * .05
         universe.rotation.x = elapsedTime * .03
-        universe.rotation.z = elapsedTime * .03
-        camera.lookAt(earthMesh.position)
 
-        controls.update()
+
+        camera.position.y = cursor.y * .3
+        camera.position.x = cursor.x * .3
+
 
         renderer.render(scene, camera ) 
         window.requestAnimationFrame(tick)

@@ -3,7 +3,7 @@ import planetUniverse from './planetUniverse'
 
 
 
-const Scene = () => {
+const SceneWebGl = () => {
 
     useEffect(() => {
         planetUniverse()
@@ -14,4 +14,4 @@ const Scene = () => {
   )
 }
 
-export default Scene
+export default SceneWebGl

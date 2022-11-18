@@ -1,11 +1,12 @@
 import React from 'react'
+import Header from './header/Header'
 import "./home.css"
-import Scene from './scene/Scene'
+import WhatDigArt from './whatDigArt/WhatDigArt'
 
 const Home = () => {
   return (
     <div className="home">
-      <Scene/>
+      <Header/>
     </div>
   )
 }
