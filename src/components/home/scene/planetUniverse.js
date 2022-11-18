@@ -316,7 +316,7 @@ const planetUniverse = () => {
 
 
         tl.to(groupPlanet.position , {
-            z: 2.2,
+            z: 2.1,
             duration:1,
         })
 
