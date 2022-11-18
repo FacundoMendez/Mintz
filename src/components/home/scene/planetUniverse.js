@@ -1,5 +1,4 @@
 import * as THREE from "three"
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import earthBump from "./srcPlanet/earthbump.jpg"
 import earthCloud from "./srcPlanet/earthCloud.png"
 import earthmap1k from "./srcPlanet/earthmap1k.jpg"
@@ -15,6 +14,9 @@ const planetUniverse = () => {
     const scene = new THREE.Scene()
     
     
+
+
+
     const sizes = {
         width : window.innerWidth,
         height : window.innerHeight
@@ -39,16 +41,44 @@ const planetUniverse = () => {
         
     })
 
+/*     let colorPlanet = [
+        "#f00000",
+        "#f0f0f0",
+        "#ff00ff",
+        "#00ff00",
+        "#f0fff0",
+    ]
 
+    const colorChange = document.querySelector(".colorchange")
+    let countColors = 1
+    let colorMesh = colorPlanet[0]
+
+    colorChange.addEventListener("click" , () => {
+
+
+        if (countColors <= 4){
+            colorMesh = colorPlanet[countColors]
+            materialUniverse.color= new THREE.Color(colorMesh)
+            earthMaterial.color= new THREE.Color(colorMesh)
+            countColors++;
+        }else{
+            countColors = 0
+        }
+
+    })
+ */
 
 
     // lights
 
     
     const pointLight = new THREE.PointLight(0xffffff, 2)
-    pointLight.position.set(3,3, 5);
+    pointLight.position.set(2,3, 5);
     scene.add(pointLight);
     
+
+
+
 
     /* textures */
     const textureLoader = new THREE.TextureLoader()
@@ -59,6 +89,9 @@ const planetUniverse = () => {
     galaxyTexture.minFilter = THREE.NearestFilter
       
     
+
+
+    /* universe */
 
     const universeGeometry = new THREE.SphereGeometry(25, 35, 35)
     const materialUniverse = new THREE.MeshBasicMaterial({
@@ -74,26 +107,33 @@ const planetUniverse = () => {
     scene.add(universe)
 
 
+
+
+
+
     const groupPlanet = new THREE.Group()
     scene.add(groupPlanet)
+
+    
     
     // earth / cloud geometry
-    const planetGeometry = new THREE.SphereGeometry(0.6, 32, 32);
+    const planetGeometry = new THREE.SphereGeometry(1, 32, 32);
     
+
    
     const earthMaterial = new THREE.MeshPhongMaterial({
         map: texturePlanet,
         bumpMap: earthBump1,
         bumpScale: .2,
         side: THREE.FrontSide,
-        color: new THREE.Color("#f00000"),
         sizeAttenuation: true,
+        color: new THREE.Color("#f00000"),
+
         transparent:true
     });
     
 
     const earthMesh = new THREE.Mesh(planetGeometry, earthMaterial);
-    earthMesh.scale.set(1.4, 1.4 , 1.4 )
     earthMesh.position.x= .5
     groupPlanet.add(earthMesh);
             
@@ -106,7 +146,7 @@ const planetUniverse = () => {
     
 
     const earthSideMesh = new THREE.Mesh(planetGeometry, earthSide);
-    earthSideMesh.scale.set(1.3, 1.3 , 1.3 )
+    earthSideMesh.scale.set(.95, .95, .95 )
     earthSideMesh.position.x= .5
 
     groupPlanet.add(earthSideMesh);
@@ -121,11 +161,15 @@ const planetUniverse = () => {
      
 
      const cloudMesh = new THREE.Mesh(planetGeometry, cloudMetarial);
-     cloudMesh.scale.set(1.48, 1.48 , 1.48 )
+     cloudMesh.scale.set(1.03, 1.03 , 1.03 )
      cloudMesh.position.x= .5
 
 
+     groupPlanet.scale.set(.97, .97 , .97)
      groupPlanet.add(cloudMesh);
+
+
+
 
 
 
@@ -178,6 +222,8 @@ const planetUniverse = () => {
 
 
 
+
+
     const renderer = new THREE.WebGLRenderer({
         canvas: canvas,
         antialias: true,
@@ -186,6 +232,10 @@ const planetUniverse = () => {
 
     renderer.setSize(sizes.width , sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+
+
+
 
 
     const cursor = {
@@ -201,6 +251,8 @@ const planetUniverse = () => {
 
 
 
+
+
     /* movement */
 
     const movementScroll = () => {
@@ -209,10 +261,11 @@ const planetUniverse = () => {
         const tl = gsap.timeline({
             ease: Elastic,
             scrollTrigger:{
-                trigger:".header",
-                pin:".header",
+                trigger:".main",
+                pin:true,
                 scrub:2,
                 start: "top top",
+                end: "+=5000"
             }
         })
 
@@ -243,8 +296,6 @@ const planetUniverse = () => {
             y: "-= 700",
         })
 
-
-
         tl.to(".box_technology" , {
             opacity:1,
             y: "-30rem"
@@ -262,9 +313,11 @@ const planetUniverse = () => {
             z: 1,
         })
 
+
+
         tl.to(groupPlanet.position , {
             z: 2.2,
-            duration:2,
+            duration:1,
         })
 
 
@@ -276,6 +329,8 @@ const planetUniverse = () => {
     }
 
     movementScroll()
+
+
 
 
 

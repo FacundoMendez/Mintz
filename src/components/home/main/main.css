@@ -5,6 +5,12 @@
     z-index: 999;
 }
 
+.colorchange{
+    z-index: 999;
+    cursor: pointer;
+}
+
+
 .webGL_header{
     position: fixed;
     width: 100%;
