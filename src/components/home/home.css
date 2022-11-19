@@ -1,3 +1,27 @@
 .home{
     overflow: hidden;
 }
+
+.colorchange{
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.63);
+    backdrop-filter: blur(3px);
+    border: none;
+    transition: all .4s ease;
+}
+
+.colorchange:hover{
+    background-color: rgba(255, 255, 255, 0.986);
+    filter: drop-shadow( 0 0 10px white);
+    transition: all .4s ease;
+}
+
+.colorchange img{
+    object-fit: contain;
+    width: 4.5rem;
+    padding: .5rem;
+}

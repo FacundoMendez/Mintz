@@ -1,11 +1,14 @@
 import * as THREE from "three"
 import earthBump from "./srcPlanet/earthbump.jpg"
 import earthCloud from "./srcPlanet/earthCloud.png"
-import earthmap1k from "./srcPlanet/earthmap1k.jpg"
+import earthmap1k from "./srcPlanet/earthMap2.png"
 import galaxy from "./srcPlanet/space7.jpg"
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Elastic } from "gsap";
+import * as dat from "lil-gui"
+
+
 
 const planetUniverse = () => {
 
@@ -41,39 +44,13 @@ const planetUniverse = () => {
         
     })
 
-/*     let colorPlanet = [
-        "#f00000",
-        "#f0f0f0",
-        "#ff00ff",
-        "#00ff00",
-        "#f0fff0",
-    ]
-
-    const colorChange = document.querySelector(".colorchange")
-    let countColors = 1
-    let colorMesh = colorPlanet[0]
-
-    colorChange.addEventListener("click" , () => {
-
-
-        if (countColors <= 4){
-            colorMesh = colorPlanet[countColors]
-            materialUniverse.color= new THREE.Color(colorMesh)
-            earthMaterial.color= new THREE.Color(colorMesh)
-            countColors++;
-        }else{
-            countColors = 0
-        }
-
-    })
- */
 
 
     // lights
 
     
-    const pointLight = new THREE.PointLight(0xffffff, 2)
-    pointLight.position.set(2,3, 5);
+    const pointLight = new THREE.PointLight(0xffffff, 2.2)
+    pointLight.position.set(2,3, 6);
     scene.add(pointLight);
     
 
@@ -127,8 +104,7 @@ const planetUniverse = () => {
         bumpScale: .2,
         side: THREE.FrontSide,
         sizeAttenuation: true,
-        color: new THREE.Color("#f00000"),
-
+        color: new THREE.Color("#e31616"),
         transparent:true
     });
     
@@ -136,7 +112,8 @@ const planetUniverse = () => {
     const earthMesh = new THREE.Mesh(planetGeometry, earthMaterial);
     earthMesh.position.x= .5
     groupPlanet.add(earthMesh);
-            
+
+
 
     const earthSide = new THREE.MeshBasicMaterial({
         color: new THREE.Color("#000000"),
@@ -238,6 +215,8 @@ const planetUniverse = () => {
 
 
 
+
+
     const cursor = {
         x: 0,
         y: 0
@@ -265,7 +244,7 @@ const planetUniverse = () => {
                 pin:true,
                 scrub:2,
                 start: "top top",
-                end: "+=5000"
+                end: "+=6000"
             }
         })
 
@@ -281,30 +260,30 @@ const planetUniverse = () => {
             duration: 2,
         })
         tl.to(".titleMintz" , {
-            y: "-= 500",
+            y: "-= 600",
         })
 
         
         tl.to(".presentMintz" , {
             opacity:1,
-            y: "-30rem"
+            y: "-10rem"
         })
     
         tl.to(".presentMintz" , {
             duration:2,
             delay: .5,
-            y: "-= 700",
+            y: "-= 800",
         })
 
         tl.to(".box_technology" , {
             opacity:1,
-            y: "-30rem"
+            y: "-10rem"
         })
 
         tl.to(".box_technology" , {
             duration:2,
             delay: .5,
-            y: "-= 700",
+            y: "-= 800",
         })
 
         tl.to(groupPlanet.position , {
@@ -331,8 +310,84 @@ const planetUniverse = () => {
     movementScroll()
 
 
+    /* color change */
+
+    let colorPlanet = [
+        "#e31616",  /* initial / red */
+        "#13ec3e", /* green */
+        "#7000ff",  /* violet */
+        "#ed07c3", /* fucsia */
+        "#ffc800", /* amarillo */
+        "#00b3ff", /* celeste */
+        "#ff5900", /* naranja */
+        "#2214db", /* azul */
+        "#000000", /* black */
+    ]
+
+    let colorUniverse = [
+        "#ffffff",  /* initial / red */
+        "#00ff4c", /* green */
+        "#4400ff",  /* violet */
+        "#b007ed", /* fucsia */
+        "#bbff00", /* amarillo */
+        "#00eeff", /* celeste */
+        "#e1ff00", /* naranja */
+        "#0008ff", /* azul */
+        "#ff0000", /* black */
+    ]
 
 
+    const colorChange = document.querySelector(".colorchange")
+    let countColors = 1
+    let colorMesh = colorPlanet[0]
+    let colorMeshUniverse = colorUniverse[0]
+
+
+    colorChange.addEventListener("click" , () => {
+
+
+        if (countColors <= 8){
+            if(countColors <= 8){
+                gsap.to(groupPlanet.rotation , {
+                    x: Math.PI * 2
+                })
+             
+            }
+            gsap.to(groupPlanet.rotation , {
+                x: -Math.PI * 2
+            })
+     
+
+            colorMesh = colorPlanet[countColors]
+            colorMeshUniverse = colorUniverse[countColors]
+
+
+            materialUniverse.color= new THREE.Color(colorMeshUniverse)
+            earthMaterial.color= new THREE.Color(colorMesh)
+            countColors++;
+        }else{
+            countColors = 0
+        }
+
+    })
+
+
+
+    /* dat-gui */
+
+ /*    const gui = new dat.GUI()
+
+    const parameters = {
+        color: 0xff0000
+    }
+
+gui
+    .addColor(parameters, 'color')
+    .onChange(() =>
+    {
+        earthMaterial.color.set(parameters.color)
+        materialUniverse.color.set(parameters.color)
+    }) */
 
 
 

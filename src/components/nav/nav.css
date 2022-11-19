@@ -21,10 +21,11 @@
     border-bottom: 2px solid white;
     transition: all .5s ease;
     z-index: 99999 !important;
+    display: flex;
+    justify-content: center;
 }
 
 .titleNav{
-    position: relative;
     font-size: 5rem;
     color: rgba(255, 255, 255, 0.959);
     letter-spacing: -.5px;
@@ -34,6 +35,8 @@
     margin-left: 4rem;
     font-style: oblique;
     top:2rem;
+    position: absolute;
+    left: 0;
 }
 
 .toggle{
@@ -79,6 +82,33 @@
 
 
 
+.list_nav{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    transition: all 1s ease;
+}
 
 
+.list_nav li{
+    position: relative;
+    font-size: 14rem;
+    color: rgba(255, 255, 255, 0.959);
+    letter-spacing: -.5px;
+    font-family: bulevar;
+    outline: none;
+    text-transform: uppercase;
+    top:2rem;
+    transition: all .4s ease;
+}
 
+
+.list_nav li:hover{
+    text-shadow:  0 0 1rem rgb(207, 207, 207);
+    transition: all .4s ease;
+
+}
