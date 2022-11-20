@@ -6,7 +6,7 @@ import galaxy from "./srcPlanet/space7.jpg"
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Elastic } from "gsap";
-import * as dat from "lil-gui"
+/* import * as dat from "lil-gui" */
 
 
 
@@ -256,11 +256,11 @@ const planetUniverse = () => {
     
         tl.to(".titleMintz" , {
             scale: 2,
-            x:500,
+            y: "-= 900",
             duration: 2,
         })
         tl.to(".titleMintz" , {
-            y: "-= 600",
+            y: "-= 900",
         })
 
         
@@ -272,7 +272,7 @@ const planetUniverse = () => {
         tl.to(".presentMintz" , {
             duration:2,
             delay: .5,
-            y: "-= 800",
+            y: "-= 900",
         })
 
         tl.to(".box_technology" , {
@@ -283,7 +283,7 @@ const planetUniverse = () => {
         tl.to(".box_technology" , {
             duration:2,
             delay: .5,
-            y: "-= 800",
+            y: "-= 900",
         })
 
         tl.to(groupPlanet.position , {

@@ -1,0 +1,51 @@
+.box_section_service{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 70%;
+    height: 100%;
+    gap: 0rem;
+    padding-top: 5rem;
+}
+
+
+.title_Section_services{
+    height: 15rem;
+    width: 30rem;
+    position: relative;
+    z-index: 400;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.title_Section_services h1{
+    position: relative;
+    font-size: 15rem;
+    letter-spacing: 3px;
+    font-family: bulevar;
+    outline: none;
+    opacity: 1;
+    text-transform: uppercase;
+    transition: all .4s ease;
+}
+
+
+.box_text_section_services{
+    position: relative;
+    top: -12rem;
+}
+.box_text_section_services p{
+    position: relative;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3rem;
+    font-family: MontserratBold;
+    letter-spacing: 0px;
+}

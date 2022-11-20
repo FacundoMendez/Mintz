@@ -24,17 +24,13 @@ function App() {
      <Preload/>
      <Nav/>
       <Routes>  
-        <Route exact path="/About" element={<AboutSection />} />
-        <Route exact path="/Services " element={<ServicesSection />} />
-        <Route exact path="/Contact" element={<ConctactSection />} />
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/About"      element={<AboutSection />    } />
+        <Route exact path="/services"   element={<ServicesSection/>  } />
+        <Route exact path="/Contact"    element={<ConctactSection /> } />
+        <Route exact path="/"           element={<Home />            } />
       </Routes>
     </BrowserRouter>
-/*     <div className="App">
-      <Preload/>
-      <Nav/>
-      <Home/>
-    </div> */
+
   );
 }
 

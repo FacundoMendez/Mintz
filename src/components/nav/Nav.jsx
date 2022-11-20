@@ -20,9 +20,9 @@ const Nav = () => {
       </div>
       {isActive ? 
         <ul className='list_nav' >
-          <NavLink to="/"            >  <li onClick={() => handleToggle()}>Home         </li> </NavLink>
+          <a href="/#"              >  <li onClick={() => handleToggle()}>Home         </li> </a>
           <NavLink to="./About"     >  <li onClick={() => handleToggle()}>About        </li> </NavLink>
-          <NavLink to="./Services"  >  <li onClick={() => handleToggle()}>Our Services </li> </NavLink>
+          <NavLink to="./services"  >  <li onClick={() => handleToggle()}>Our Services </li> </NavLink>
           <NavLink to="./Contact"   >  <li onClick={() => handleToggle()}>Contact      </li> </NavLink>
         </ul>
         : 

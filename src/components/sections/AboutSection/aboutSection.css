@@ -1,14 +1,59 @@
-.aboutSection{
+.Section{
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     width: 100%;
     height: 100vh;
-    background: transparent url("./noise.png") repeat 0 0;
+    background-color: rgba(0, 0, 0, 0.986);
+    z-index: 99;
+    color: rgba(255, 255, 255, 0.959);
+    transition: all .4s ease;
+    overflow-x: hidden;
+}
+
+.Section::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent url("../src/noise.png") repeat 0 0;
     background-repeat: repeat;
     animation: _noiseAnim_judif_1 .2s infinite;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
 }
+
+
+.Section_active{
+    color: rgba(0, 0, 0, 0.959);
+    background-color: rgba(226, 226, 226, 0.986);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 99;
+    transition: all .4s ease;
+}
+
+.Section_active::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent url("../src/noise.png") repeat 0 0;
+    background-repeat: repeat;
+    animation: _noiseAnim_judif_1 .2s infinite;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+
 
 
 @keyframes _noiseAnim_judif_1 {
@@ -54,14 +99,285 @@
 }
 
 
-.titleAbout_Section h1{
+.container_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     position: relative;
-    font-size: 18rem;
-    color: rgba(255, 255, 255, 0.959);
-    letter-spacing: 1px;
+    width: 70%;
+    height: 100%;
+    gap: 4rem;
+    padding-top: 10rem;
+}
+
+.title_Section{
+    height: 15rem;
+    width: 22rem;
+    position: relative;
+    z-index: 400;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title_Section h1{
+    position: relative;
+    font-size: 15rem;
+    letter-spacing: 3px;
     font-family: bulevar;
     outline: none;
+    opacity: 1;
     text-transform: uppercase;
-    top:2rem;
     transition: all .4s ease;
+}
+
+.hr_{
+    position: relative;
+    opacity: 0;
+    left: -.5rem;
+    width: 0;
+    height: .1rem;
+    bottom: 1rem;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    transition: all .5s ease;
+}
+
+.hr_active{
+    position: relative;
+    left: -.5rem;
+    width: 0;
+    height: .1rem;
+    bottom: 1rem;
+    border: 1px solid rgb(3, 2, 2);
+    box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    transition: all .5s ease;
+}
+
+
+/* text about */
+
+.box_text_section{
+    position: relative;
+    top: -7rem;
+}
+
+.box_text_section p{
+    position: relative;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3rem;
+    font-family: MontserratBold;
+    letter-spacing: 0px;
+}
+
+.box_text_section strong{
+    text-shadow:  0 0 1rem rgb(118, 255, 91);
+}
+
+
+/* box technologys */
+
+.section_techonlogy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.title_tec{
+    height: 15rem;
+    width: 42rem;
+    position: relative;
+    z-index: 400;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hr_tec{
+    position: relative;
+    opacity: 0;
+    width: 0;
+    height: .1rem;
+    bottom: 1rem;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    transition: all .5s ease;
+}
+
+.hr_active_tec{
+    position: relative;
+    opacity: 0;
+    width: 0;
+    height: .1rem;
+    bottom: 1rem;
+    border: 1px solid rgb(3, 2, 2);
+    box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    transition: all .5s ease;
+}
+
+.Title_tic{
+    position: relative;
+    font-size: 13rem;
+    letter-spacing: 3px;
+    font-family: bulevar;
+    outline: none;
+    opacity: 1;
+    text-transform: uppercase;
+    transition: all .4s ease;
+}
+
+.box_text_tec{
+    position: relative;
+}
+
+.section_techonlogy p{
+    position: relative;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3rem;
+    font-family: MontserratBold;
+    letter-spacing: 0px;
+    top: 2rem;
+}
+
+
+
+/* button color */
+
+
+.buttonColor{
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+    width: 6rem;
+    height: 6rem;
+    cursor: pointer;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    border-radius: 100%;
+}
+
+.buttonColor img{
+    object-fit: contain;
+    width: 5rem;
+    padding: .5rem;
+}
+
+
+@media screen and (max-width:1440px){
+
+    .Section {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Section_active {
+        width: 100%;
+        height: 100%;
+    }
+
+    .container_section {
+        width: 70%;
+        gap: 2rem;
+        margin-top: 10rem;
+        margin-bottom: 10rem;
+    }
+
+    .title_Section h1 {
+        font-size: 12rem;
+    }
+
+    .title_Section {
+        width: 18rem;
+    }
+
+    .box_text_section p {
+        font-size: 1.8rem;
+        line-height: 3rem;
+    }
+
+    .title_tec {
+        width: 38rem;
+    }
+
+    .Title_tic {
+        font-size: 12rem;
+    }
+
+    .section_techonlogy p {
+        font-size: 1.8rem;
+        top: 1rem;
+    }
+}
+
+
+@media screen and (max-width:1070px){
+    .container_section {
+        width: 75%;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:750px){
+    .container_section {
+        width: 90%;
+        gap: 2rem;
+    }
+
+}
+
+@media screen and (max-width:500px){
+    .container_section {
+        gap: 0rem;
+    }
+    
+    .title_Section h1 {
+        font-size: 10rem;
+    }
+
+    .title_Section {
+        width: 15rem;
+    }
+
+    .box_text_section p {
+        font-size: 1.6rem;
+        line-height: 3rem;
+    }
+
+    .title_tec {
+        width:32rem;
+    }
+
+    .Title_tic {
+        font-size: 10rem;
+    }
+
+    .section_techonlogy {
+        gap: 0rem;
+    }
+
+    .section_techonlogy p {
+        font-size: 1.6rem;
+        top: 1rem;
+    }
+ 
+
+}
+
+@media screen and (max-width:350px){
+    
+
+
 }

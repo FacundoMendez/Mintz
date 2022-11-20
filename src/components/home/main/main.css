@@ -26,24 +26,26 @@
 
 .titleMintz{
     position: relative;
-    top: -13rem;
+    top: -10rem;
     color: rgba(255, 255, 255, 0.973);
-    font-size: 10.5rem;
+    font-size: 12.5rem;
     text-transform: uppercase;
     text-align: center;
     font-family: bulevar;
     letter-spacing: 4px;
     line-height: 7rem;
+    text-shadow:  0 0 1rem rgb(112, 10, 10);
 }
 
 .titleMintz span{
     position: relative;
     color: rgba(255, 255, 255, 0.973);
-    font-size: 6.5rem;
+    font-size: 5.5rem;
     text-transform: uppercase;
     text-align: center;
     font-family: bulevar;
     letter-spacing: 3px;
+    text-shadow:  0 0 1rem rgb(112, 10, 10);
 }
 
 
@@ -136,4 +138,158 @@
     background-color: rgb(0, 0, 0);
     backdrop-filter: blur(3px);
     padding: 10rem 0;
+}
+
+@media screen and (max-width:1440px) {
+    
+    /* present */
+
+    .presentMintz{
+        top: 25rem;
+    }
+
+    .titleContainer{
+        font-size: 15rem;
+    }
+
+    .box_about{
+        width: 52%;
+    }
+
+/* box technology*/
+
+    .box_technology{
+        top: 25rem;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    
+    /* present */
+
+    .presentMintz{
+        top: 25rem;
+    }
+
+    .titleContainer{
+        font-size: 15rem;
+    }
+
+
+    .box_titleHeader {
+        width: 65rem;
+        height: 100vh;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+/* box technology*/
+
+    .box_technology{
+        top: 25rem;
+    }
+
+    .box_about{
+        width: 82%;
+    }
+
+    .box_technology p {
+        width: 82%;
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    
+    /* present */
+
+    .presentMintz{
+        top: 25rem;
+    }
+
+    .titleContainer{
+        font-size: 15rem;
+    }
+
+
+    .box_about{
+        width: 92%;
+    }
+
+    .box_technology p {
+        width: 92%;
+    }
+
+    .box_titleHeader {
+        width: 100%;
+    }
+
+    .titleMintz {
+        top: -10rem;
+        font-size: 10.5rem;
+        letter-spacing: 4px;
+        line-height: 6rem;
+    }
+
+    .titleMintz span {
+        font-size: 4.5rem;
+        letter-spacing: 3px;
+    }
+/* box technology*/
+
+    .box_technology{
+        top: 25rem;
+    }
+}
+
+
+
+@media screen and (max-width:440px) {
+    
+    .titleMintz {
+        top: -10rem;
+        font-size: 10.5rem;
+        letter-spacing: 4px;
+        line-height: 6rem;
+    }
+
+    .titleMintz span {
+        font-size: 4rem;
+        letter-spacing: 3px;
+    }
+
+}
+
+
+@media screen and (max-width:395px) {
+    
+    .titleMintz {
+        top: -10rem;
+        font-size: 10.5rem;
+        letter-spacing: 4px;
+        line-height: 5rem;
+    }
+
+    .titleMintz span {
+        font-size: 3.5rem;
+        letter-spacing: 3px;
+    }
+
+}
+
+@media screen and (max-width:350px) {
+    
+    .titleMintz {
+        top: -10rem;
+        font-size: 10.5rem;
+        letter-spacing: 4px;
+        line-height: 5rem;
+    }
+
+    .titleMintz span {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+
 }
