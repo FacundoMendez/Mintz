@@ -1,6 +1,5 @@
 import * as THREE from "three"
-import earthBump from "./srcPlanet/earthbump.jpg"
-import earthCloud from "./srcPlanet/earthCloud.png"
+import earthCloud from "./srcPlanet/earthCloud22.png"
 import earthmap1k from "./srcPlanet/earthMap2.png"
 import galaxy from "./srcPlanet/space7.jpg"
 import gsap from "gsap";
@@ -59,11 +58,9 @@ const planetUniverse = () => {
 
     /* textures */
     const textureLoader = new THREE.TextureLoader()
-    const earthBump1 = textureLoader.load(earthBump)
     const earthCloud1 = textureLoader.load(earthCloud)
     const texturePlanet = textureLoader.load(earthmap1k)
     const galaxyTexture = textureLoader.load(galaxy)
-    galaxyTexture.minFilter = THREE.NearestFilter
       
     
 
@@ -74,8 +71,6 @@ const planetUniverse = () => {
     const materialUniverse = new THREE.MeshBasicMaterial({
         side: THREE.BackSide,
         map:galaxyTexture,
-        transparent: true,
-        sizeAttenuation: true,
         opacity:.8
     })
 
@@ -100,12 +95,9 @@ const planetUniverse = () => {
    
     const earthMaterial = new THREE.MeshPhongMaterial({
         map: texturePlanet,
-        bumpMap: earthBump1,
-        bumpScale: .2,
         side: THREE.FrontSide,
-        sizeAttenuation: true,
+        alphaTest : 0.5,
         color: new THREE.Color("#e31616"),
-        transparent:true
     });
     
 
@@ -118,6 +110,7 @@ const planetUniverse = () => {
     const earthSide = new THREE.MeshBasicMaterial({
         color: new THREE.Color("#000000"),
         side: THREE.DoubleSide,
+        alphaTest : 0.5,
 
     });
     
@@ -131,9 +124,10 @@ const planetUniverse = () => {
 
      // clouds
 
-     const cloudMetarial = new THREE.MeshPhongMaterial({
+     const cloudMetarial = new THREE.MeshBasicMaterial({
          map:earthCloud1,
          transparent: true,
+         opacity: .9
      });
      
 
@@ -155,7 +149,7 @@ const planetUniverse = () => {
 
 
    const starsGeometry =new THREE.BufferGeometry()
-   const count = 1500
+   const count = 700
 
    const colors = new Float32Array(count * 3)
    const positions = new Float32Array(count * 3) 
@@ -163,7 +157,7 @@ const planetUniverse = () => {
    let material = null
    let points = null
 
-   
+
 
    for(let i = 0; i < count * 3; i++) {
 
@@ -174,7 +168,7 @@ const planetUniverse = () => {
            scene.remove(points)
        }
 
-       positions[i] = (Math.random() - .5) * 30
+       positions[i] = (Math.random() - .5) * 25
        colors[i] = Math.random()
    }
 
@@ -185,10 +179,9 @@ const planetUniverse = () => {
 
 
    const particlesMaterial = new THREE.PointsMaterial({
-       size:0.01,
-       sizeAttenuation: true,
+       size:0.015,
+       alphaTest : 0.5,
        color: new THREE.Color("#ffffff"),
-       transparent: true,
    })
 
    const particle = new THREE.Points(starsGeometry, particlesMaterial)
@@ -200,11 +193,17 @@ const planetUniverse = () => {
 
 
 
-
     const renderer = new THREE.WebGLRenderer({
         canvas: canvas,
-        antialias: true,
-        alpha:true
+    
+        /* optimizacion */
+
+        antialias:false,
+        preserveDrawingBuffer: false,
+        failIfMajorPerformanceCaveat: true
+
+    /*     powerPreference: "low-power", */
+       /*  FXAAShader:true  *//* remplazo antialias */
     })
 
     renderer.setSize(sizes.width , sizes.height)

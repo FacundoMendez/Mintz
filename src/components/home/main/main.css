@@ -11,8 +11,8 @@
     width: 100%;
     top: 0;
     left: 0;
-  filter: contrast(105%) ;
-
+    filter: contrast(105%) ;
+    pointer-events: none;
 }
 
 .box_titleHeader{
