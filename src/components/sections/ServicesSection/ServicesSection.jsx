@@ -4,6 +4,7 @@ import "./servicesSection.css"
 import gsap from 'gsap'
 import lightBlack from "../../assets/lightBlack.png"
 import lightWhite from "../../assets/lightWhite.png"
+import { NavLink } from 'react-router-dom'
 
 
 const ServicesSection = () => {
@@ -22,10 +23,10 @@ const ServicesSection = () => {
     tl.to(".title_Section_services",{
       delay: .3,
       letterSpacing: "3px",
-      yPercent: -120
+      yPercent: -70
     })
 
-    tl.to(".hr_",{
+    tl.to(".hr_service",{
       opacity: 1,
       width: "100%"
     })
@@ -35,6 +36,10 @@ const ServicesSection = () => {
       opacity: -1,
     })
 
+    tl.to(".contact_button_select",{
+      opacity: 1,
+    })
+    
   },[])
 
   const [ activeColor , setActiveColor ] = useState(false)
@@ -49,24 +54,36 @@ const ServicesSection = () => {
         <div className="box_section_service">
           <div className="title_Section_services">
               <h1 className='Title_s'>Services</h1>
-              <hr  className={activeColor ? "hr_active" : "hr_"}/>
+              <hr  className={activeColor ? "hr_active_service" : "hr_service"}/>
           </div>
           <div className="box_text_section_services">
             <p>We have a wide range of services, do not hesitate to contact us for your project</p>
-            <ul>
-              <li>Web3 (Blockchain) </li>
-              <li>Web2</li>
-              <li>3D Designs</li>
-              <li>Ux/Ui</li>
-              <li>NFT's</li>
-              <li>Creative Websites</li>
-              <li>e-Commerce</li>
-              <li>Mobile Experience</li>
-              <li>Support and Maintenance</li>
-              <li>Advisory</li>
-            </ul>
+            
+            <div className="box_list_services">
+              <ul className='listSectionServices'>
+                <li>Web3 (Blockchain) </li>
+                <li>Web2</li>
+                <li>3D Designs</li>
+                <li>Ux/Ui</li>
+                <li>NFT's</li>
+              </ul>
+
+              <ul className='listSectionServices2'>
+                <li>Creative Websites</li>
+                <li>e-Commerce</li>
+                <li>Mobile Experience</li>
+                <li>Support and Maintenance</li>
+                <li>Advisory</li>
+              </ul>
+            </div>
           </div>
+          <NavLink to="/Contact">
+            <div className={activeColor ? "contact_button_select_active" : "contact_button_select"}>
+               Contact
+            </div>
+          </NavLink>
         </div>
+            
  
 
         <div className="buttonColor" onClick={() => handlerColor() }>

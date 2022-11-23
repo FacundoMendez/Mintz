@@ -4,16 +4,17 @@
     align-items: center;
     flex-direction: column;
     position: relative;
-    width: 70%;
-    height: 100%;
-    gap: 0rem;
-    padding-top: 5rem;
+    width: 100%;
+    height: 100vh;
+    transition: all .4s ease;
+    padding: 10rem 0;
+    overflow-x: hidden;
+    z-index: 999;
 }
 
 
 .title_Section_services{
     height: 15rem;
-    width: 30rem;
     position: relative;
     z-index: 400;
     text-align: center;
@@ -21,6 +22,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 15rem;
 }
 
 
@@ -38,14 +40,208 @@
 
 .box_text_section_services{
     position: relative;
-    top: -12rem;
+    top: -7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5rem;
 }
 .box_text_section_services p{
     position: relative;
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
     text-align: center;
     line-height: 3rem;
     font-family: MontserratBold;
     letter-spacing: 0px;
+    padding: 0 4rem;
+}
+
+.box_list_services{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    left: 4rem;
+    gap: 9rem;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.listSectionServices, .listSectionServices2{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.3rem;
+    padding: 0 2rem;
+}
+
+.listSectionServices li , .listSectionServices2 li{
+    font-size: 4rem;
+    letter-spacing: 1px ;
+    font-family: bulevar;
+}
+
+
+.hr_service{
+    position: relative;
+    opacity: 0;
+    left: -.5rem;
+    width: 0;
+    height: .1rem;
+    bottom: 1rem;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    transition: all .5s ease;
+}
+
+.hr_active_service{
+    position: relative;
+    left: -.5rem;
+    width: 0;
+    height: .1rem;
+    bottom: 1rem;
+    border: 1px solid rgb(3, 2, 2);
+    box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    transition: all .5s ease;
+}
+
+
+.contact_button_select{
+    opacity: 0;
+    color: white;
+    border: 2px solid white;
+    font-size: 4rem;
+    letter-spacing: 1.5px ;
+    font-family: bulevar;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    text-shadow:  0 0 .3rem rgba(178, 255, 163, 0.699);
+    transition: all .4s ease;
+}
+
+.contact_button_select_active{
+    opacity: 0;
+    color: rgb(0, 0, 0);
+    border: 3px solid rgb(0, 0, 0);
+    font-size: 4rem;
+    letter-spacing: 1.5px ;
+    font-family: bulevar;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    text-shadow:  0 0 .3rem rgba(178, 255, 163, 0.699);
+    transition: all .4s ease;
+}
+
+.contact_button_select:hover{
+    scale: 1.1;
+    text-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    box-shadow:  0 0 .7rem rgba(178, 255, 163, 0.699);
+    transition: all .4s ease;
+}
+
+
+.contact_button_select_active:hover{
+    scale: 1.1;
+    text-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    box-shadow:  0 0 .7rem rgba(178, 255, 163, 0.699);
+    transition: all .4s ease;
+}
+
+
+@media screen and (max-width:1440px){
+    .title_Section_services h1 {
+        font-size: 13rem;
+    }
+}
+
+
+
+
+@media screen and (max-width:750px){
+    .box_section_service {
+        margin: 0rem;
+        height: 100%;
+    }
+
+    .box_text_section_services p {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+    }
+
+    .box_list_services {
+        left: 0rem;
+        gap: 2rem;
+        padding: 2rem;
+        left: 2rem;
+    }
+
+    .listSectionServices li , .listSectionServices2 li{
+        font-size: 3rem;
+        letter-spacing: 1px ;
+        font-family: bulevar;
+    }
+    
+    .title_Section_services h1 {
+        font-size: 12rem;
+    }
+}
+
+
+@media screen and (max-width:500px){
+    .box_section_service {
+        margin: 0rem;
+        height: 100%;
+    }
+
+    .box_text_section_services p {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+    }
+
+    .box_list_services {
+        left: 0rem;
+        gap: 2rem;
+        padding: 2rem;
+        left: 3rem;
+        width: 30rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        
+    }
+
+    .title_Section_services h1 {
+        font-size: 10rem;
+    }
+
+    .box_text_section_services {
+        top: -10rem;
+        gap: 5rem;
+    }
+    
+    .hr_service{
+        position: relative;
+        opacity: 0;
+        left: -.5rem;
+        width: 0;
+        height: .1rem;
+        bottom: 1rem;
+    }
+
+    .box_text_section_services p {
+        padding: 0 2rem;
+    }
+
+    .listSectionServices li , .listSectionServices2 li{
+        font-size: 3rem;
+        letter-spacing: 1px ;
+        font-family: bulevar;
+    }
+    
 }
