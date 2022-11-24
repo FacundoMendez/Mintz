@@ -113,3 +113,19 @@
     transition: all .4s ease;
 
 }
+
+@media screen and (max-width:600px) {
+
+    .list_nav li{
+        position: relative;
+        font-size: 10rem;
+        color: rgba(255, 255, 255, 0.959);
+        letter-spacing: -.5px;
+        font-family: bulevar;
+        outline: none;
+        text-transform: uppercase;
+        top:2rem;
+        transition: all .4s ease;
+    }
+    
+}

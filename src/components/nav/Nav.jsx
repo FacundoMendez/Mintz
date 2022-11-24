@@ -22,7 +22,7 @@ const Nav = () => {
         <ul className='list_nav' >
           <a href="/#"              >  <li onClick={() => handleToggle()}>Home         </li> </a>
           <NavLink to="./About"     >  <li onClick={() => handleToggle()}>About        </li> </NavLink>
-          <NavLink to="./services"  >  <li onClick={() => handleToggle()}>Our Services </li> </NavLink>
+          <NavLink to="./services"  >  <li onClick={() => handleToggle()}>Services </li> </NavLink>
           <NavLink to="./Contact"   >  <li onClick={() => handleToggle()}>Contact      </li> </NavLink>
         </ul>
         : 

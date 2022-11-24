@@ -9,10 +9,13 @@
 .webGL_header{
     position: fixed;
     width: 100%;
-    top: 0;
+    min-height:100vh;
+    top: inherit;
     left: 0;
     filter: contrast(105%) ;
     pointer-events: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .box_titleHeader{
@@ -222,6 +225,7 @@
 
     .presentMintz{
         top: 25rem;
+        
     }
 
     .titleContainer{
@@ -268,6 +272,10 @@
         top: 25rem;
     }
 
+    .webGL_header{
+        position: fixed;
+    }
+    
 }
 
 
