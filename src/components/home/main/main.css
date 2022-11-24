@@ -161,6 +161,13 @@
     .box_technology{
         top: 25rem;
     }
+
+    
+    /* box services */
+    .box_services{
+        top: 25rem;
+    }
+    
 }
 
 @media screen and (max-width:1440px) {
@@ -195,6 +202,15 @@
     }
 
     .box_technology p {
+        width: 82%;
+    }
+
+    /* box services */
+    .box_services{
+        top: 25rem;
+    }
+    
+    .box_services p {
         width: 82%;
     }
 }
@@ -236,11 +252,22 @@
         font-size: 4.5rem;
         letter-spacing: 3px;
     }
-/* box technology*/
+    /* box technology*/
 
     .box_technology{
         top: 25rem;
     }
+
+    .titleContainer {
+        font-size: 10rem;
+    }
+
+    
+    /* box services */
+    .box_services{
+        top: 25rem;
+    }
+
 }
 
 
@@ -258,6 +285,26 @@
         font-size: 4rem;
         letter-spacing: 3px;
     }
+
+    
+    .titleContainer {
+        font-size: 8rem;
+    }
+
+    .title_contact_footer h1 {
+        font-size: 12rem;
+        letter-spacing: 3px;
+    }
+
+    
+    .box_contact_main input{
+        width: 30rem;
+    }
+
+    .box_contact_main textarea{
+        width: 30rem;
+    }
+
 
 }
 
@@ -290,6 +337,10 @@
     .titleMintz span {
         font-size: 3rem;
         letter-spacing: 2px;
+    }
+
+    .titleContainer {
+        font-size: 7rem;
     }
 
 }

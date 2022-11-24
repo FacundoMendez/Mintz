@@ -35,6 +35,14 @@ const ServicesSection = () => {
       scale:1.4,
       opacity: -1,
     })
+    tl.from(".listSectionServices",{
+      scale:1.4,
+      opacity: -1,
+    })
+    tl.from(".listSectionServices2",{
+      scale:1.4,
+      opacity: -1,
+    })
 
     tl.to(".contact_button_select",{
       opacity: 1,

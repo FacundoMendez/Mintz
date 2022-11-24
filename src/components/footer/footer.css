@@ -1,33 +1,44 @@
-.container_contact{
+.footer{
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
-    width: 100%;
-    height: 100vh;
-    transition: all .4s ease;
-    gap: 4rem;
+    gap: 0rem;
+    background-color: rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(3px);
     padding: 10rem 0;
-    overflow-x: hidden;
-    z-index: 999;
+    opacity: 0;
 }
 
+.box_contact_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    width: 100%;
+}
 
-.title_Section_contact{
+.title_contact_footer{
     height: 15rem;
     position: relative;
+    color: white;
     z-index: 400;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    top: 2rem;
 }
 
-
-
-.title_Section_contact h1{
+.title_contact_footer h1{
     position: relative;
     font-size: 15rem;
     letter-spacing: 3px;
@@ -38,8 +49,20 @@
     transition: all .4s ease;
 }
 
+.hr_contact{
+    position: relative;
+    left: -.5rem;
+    width: 0;
+    height: .1rem;
+    opacity: 0;
+    bottom: 1rem;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
+    transition: all .5s ease;
+}
 
-.box_contact_section{
+
+.box_contact_main{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,10 +70,10 @@
     gap: 2rem;
     position: relative;
     width: 100%;
-    top: -2rem;
+    top: 2rem;
 }
 
-.box_contact_section input{
+.box_contact_main input{
     width: 40rem;
     height: 5rem;
     padding: 2rem;
@@ -64,10 +87,9 @@
     font-weight: bold;
     position: relative;
     box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
-
 }
 
-.box_contact_section textarea{
+.box_contact_main textarea{
     width: 40rem;
     height: 15rem;
     padding: 2rem;
@@ -80,10 +102,10 @@
     outline: none;
     text-transform: uppercase;
     box-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
-
 }
 
-.box_contact_section input::placeholder , .pp::placeholder{
+
+.box_contact_main input::placeholder , .pp_main::placeholder{
     font-size:3rem;
     letter-spacing:5px;
     font-family: bulevar;
@@ -94,7 +116,8 @@
     font-weight: bold;
 }
 
-.sendContact{
+
+.sendContact_main{
     opacity: 0;
     color: white;
     text-transform: uppercase;
@@ -103,6 +126,8 @@
     letter-spacing: 1.5px ;
     font-family: bulevar;
     padding: 1rem 2rem;
+    position: relative;
+    top: 2rem;
     background-color: black;
     cursor: pointer;
     text-shadow:  0 0 .3rem rgba(178, 255, 163, 0.699);
@@ -110,52 +135,9 @@
     transition: all .4s ease;
 }
 
-
-.sendContact_active{
-    opacity: 0;
-    color: rgb(0, 0, 0);
-    border: 2px solid rgba(0, 0, 0, 0.705);
-    font-size: 4rem;
-    letter-spacing: 1.5px ;
-    font-family: bulevar;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    text-shadow:  0 0 .3rem rgba(178, 255, 163, 0.699);
-    box-shadow:  0 0 .3rem rgba(178, 255, 163, 0.699);
-    transition: all .4s ease;
-}
-
-.sendContact:hover{
+.sendContact_main:hover{
     scale: 1.1;
     text-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
     box-shadow:  0 0 .7rem rgba(178, 255, 163, 0.699);
     transition: all .4s ease;
-}
-
-
-.sendContact_active:hover{
-    scale: 1.1;
-    text-shadow:  0 0 1rem rgba(178, 255, 163, 0.699);
-    box-shadow:  0 0 .7rem rgba(178, 255, 163, 0.699);
-    transition: all .4s ease;
-}
-
-@media screen and (max-width:440px) {
-
-    .title_Section_contact{
-        top: 5rem;
-    }
-
-    .title_Section_contact h1 {
-        font-size: 12rem;
-        letter-spacing: 3px;
-    }
-
-    .box_contact_section input{
-        width: 30rem;
-    }
-
-    .box_contact_section textarea{
-        width: 30rem;
-    }
 }

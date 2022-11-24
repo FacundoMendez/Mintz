@@ -168,7 +168,7 @@ const planetUniverse = () => {
            scene.remove(points)
        }
 
-       positions[i] = (Math.random() - .5) * 25
+       positions[i] = (Math.random() - .5) * 30
        colors[i] = Math.random()
    }
 
@@ -285,6 +285,18 @@ const planetUniverse = () => {
             y: "-= 900",
         })
 
+        tl.to(".box_services" , {
+            opacity:1,
+            y: "-10rem"
+        })
+
+        tl.to(".box_services" , {
+            duration:2,
+            delay: .5,
+            y: "-= 900",
+        })
+
+
         tl.to(groupPlanet.position , {
             duration: 2,
             x: -.4,
@@ -299,7 +311,6 @@ const planetUniverse = () => {
 
 
         tl.to(".footer" , {
-            duration: 0,
             opacity:1,
             y: "0rem"
         })
