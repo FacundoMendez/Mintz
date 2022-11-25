@@ -141,6 +141,8 @@
     cursor: pointer;
     text-shadow:  0 0 .3rem rgba(178, 255, 163, 0.699);
     transition: all .4s ease;
+    position: relative;
+    z-index: 99999 !important;
 }
 
 .contact_button_select_active{
