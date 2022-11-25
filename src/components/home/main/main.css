@@ -9,11 +9,11 @@
 .webGL_header{
     position: fixed;
     width: 100%;
-    min-height:100vh;
     top: inherit;
     left: 0;
     filter: contrast(105%) ;
     pointer-events: none;
+    min-height:100vh;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }

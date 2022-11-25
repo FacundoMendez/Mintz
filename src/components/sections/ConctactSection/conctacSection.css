@@ -11,6 +11,9 @@
     padding: 10rem 0;
     overflow-x: hidden;
     z-index: 999;
+    pointer-events: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 

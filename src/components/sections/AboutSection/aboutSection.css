@@ -10,6 +10,9 @@
     color: rgba(255, 255, 255, 0.959);
     transition: all .4s ease;
     overflow-x: hidden;
+    pointer-events: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .Section::before{
@@ -109,6 +112,9 @@
     height: 100%;
     gap: 4rem;
     padding-top: 10rem;
+    pointer-events: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .title_Section{
@@ -187,6 +193,9 @@
     align-items: center;
     flex-direction: column;
     gap: 2rem;
+    pointer-events: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .title_tec{
@@ -266,6 +275,7 @@
     justify-content: center;
     backdrop-filter: blur(4px);
     border-radius: 100%;
+    
 }
 
 .buttonColor img{
