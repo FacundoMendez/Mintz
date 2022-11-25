@@ -234,11 +234,11 @@
 
 
     .box_about{
-        width: 92%;
+        width: 96%;
     }
 
     .box_technology p {
-        width: 92%;
+        width: 96%;
     }
 
     .box_titleHeader {
@@ -274,6 +274,10 @@
 
     .webGL_header{
         position: fixed;
+    }
+
+    .box_services p {
+        width: 96%;
     }
     
 }

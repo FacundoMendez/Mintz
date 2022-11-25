@@ -10,11 +10,6 @@ const Services = () => {
             We have a wide range of services, we handle a high level of development/design, focused on the best user experience. Look at our catalog of services.
         </p>
 
-        <NavLink to="Services">
-            <div className="services_button_section">
-                Services
-            </div>
-        </NavLink>
     </div>
   )
 }
